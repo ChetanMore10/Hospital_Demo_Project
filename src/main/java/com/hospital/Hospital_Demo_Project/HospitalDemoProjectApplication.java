@@ -10,5 +10,4 @@ public class HospitalDemoProjectApplication {
 		SpringApplication.run(HospitalDemoProjectApplication.class, args);
         System.err.println("Application run Successfully..!");
 	}
-
 }
