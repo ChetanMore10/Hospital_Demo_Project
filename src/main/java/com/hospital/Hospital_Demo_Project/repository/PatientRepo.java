@@ -1,10 +1,9 @@
 package com.hospital.Hospital_Demo_Project.repository;
 
-import com.hospital.Hospital_Demo_Project.entity.Doctor;
+import com.hospital.Hospital_Demo_Project.entity.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DoctorRepo extends JpaRepository<Doctor, Long> {
-
+public interface PatientRepo extends JpaRepository<Patient, Long> {
 }

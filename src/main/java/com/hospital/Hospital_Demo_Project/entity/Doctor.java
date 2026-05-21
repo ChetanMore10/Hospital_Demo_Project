@@ -1,5 +1,6 @@
 package com.hospital.Hospital_Demo_Project.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,9 +27,10 @@ public class Doctor {
 
     private String contactNumber;
 
-    private int experience;
+    private Integer experience;
 
     @OneToMany(mappedBy = "doctor")
+    @JsonIgnore
     private List<Patient> patients;
 
 }
