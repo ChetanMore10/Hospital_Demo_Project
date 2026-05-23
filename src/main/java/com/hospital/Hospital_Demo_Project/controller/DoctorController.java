@@ -10,30 +10,31 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/doctor")
 public class DoctorController {
 
     @Autowired
     private DoctorService doctorService;
 
-    @PostMapping("/doctor")
+    @PostMapping
     public ResponseEntity<Doctor> SaveDoctor(@RequestBody Doctor doctor){
         Doctor doctor1 = doctorService.addDoctor(doctor);
         return new ResponseEntity<>(doctor1, HttpStatus.CREATED);
     }
 
-    @GetMapping("/doctor")
+    @GetMapping
     public ResponseEntity<List<Doctor>> getAll(){
         List<Doctor> doctorList = doctorService.getAllDoctor();
         return new ResponseEntity<>(doctorList, HttpStatus.FOUND);
     }
 
-    @PutMapping("/doctor/{doctorId}")
+    @PutMapping("/{doctorId}")
     public ResponseEntity<Doctor> updateDoctor(@RequestBody Doctor doctor, @PathVariable Long doctorId){
         Doctor doctor1 = doctorService.updateDoctor(doctor, doctorId);
         return new ResponseEntity<>(doctor1, HttpStatus.OK);
     }
 
-    @DeleteMapping("/doctor/{doctorId}")
+    @DeleteMapping("/{doctorId}")
     public ResponseEntity<String> deleteDoctor(@PathVariable Long doctorId){
         doctorService.deleteDoctor(doctorId);
         return new ResponseEntity<>("Doctor Deleted Successfully..!", HttpStatus.OK);
